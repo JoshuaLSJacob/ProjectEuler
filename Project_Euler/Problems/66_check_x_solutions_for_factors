@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Apr 17 13:21:15 2019
+
+@author: joshuajacob
+"""
+
+def p_f(y):
+    prime = False
+    factors = []
+    while not prime:
+            a = 1
+            for a in range(2,y+1):
+                if y%a == 0:
+                    break
+            if y/a == 1:
+                prime = True
+                factors.append(a)
+            else:
+                factors.append(a)
+                y = int(y/a)
+
+    return(factors)
+
+
+D = 5
+success = False
+y = 2
+
+while not success:
+    if ((float((y**2)*D))+1)**0.5 % 1 == 0.0:
+        print('D',D,p_f(D))
+        print('Y',y,p_f(int(y)))
+        print('X',((float((y**2)*D))+1)**0.5,p_f(int(((float((y**2)*D))+1)**0.5)))
+        if y > 100000000:
+            success = True
+    y += 1
